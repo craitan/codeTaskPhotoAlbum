@@ -3,7 +3,7 @@ import Home from "./views/Home/Home"
 import UploadPhoto from "./views/UploadPhoto/UploadPhoto"
 import SinglePhoto from "./views/SinglePhoto/SinglePhoto"
 import AllPhotos from "./views/AllPhotos/AllPhotos"
-import NavBar from "./components/NavBar"
+import NavBar from "./components/NavBar/NavBar"
 
 
 function App() {
