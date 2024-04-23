@@ -1,4 +1,8 @@
-import { BrowserRouter, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Home from "./views/Home/Home"
+import UploadPhoto from "./views/UploadPhoto/UploadPhoto"
+import SinglePhoto from "./views/SinglePhoto/SinglePhoto"
+import AllPhotos from "./views/AllPhotos/AllPhotos"
 
 
 function App() {
@@ -8,10 +12,10 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <h1 className="text-3xl font-bold underline">
-            Hello world!
-            <button className="btn btn-neutral">Neutral</button>
-          </h1>
+          <Route path="/" element={<Home/>}/>
+          <Route path="photo-upload" element={<UploadPhoto/>}/>
+          <Route path="/photos/:id" element={<SinglePhoto/>}/>
+          <Route path="/photos" element={<AllPhotos/>}/>
         </Routes>
       </BrowserRouter>
     </>
