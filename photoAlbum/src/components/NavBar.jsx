@@ -5,20 +5,14 @@ const NavBar = () => {
         <div className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                    </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Upload Photo</a></li>
-                        <li><a>All Photos</a></li>
-                    </ul>
+                    
                 </div>
-                <a className="btn btn-ghost text-xl"><NavLink to={"/"}>Photo Album</NavLink></a>
+                <NavLink className="btn btn-ghost text-xl" to={"/"}>Photo Album</NavLink>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a><NavLink to={"/photo-upload"}> Upload Photo</NavLink></a></li>
-                    <li><a><NavLink to={"/photos"}> All Photos</NavLink></a></li>
+                    <li><NavLink to={"/photo-upload"}> Upload Photo</NavLink></li>
+                    <li><NavLink to={"/photos"}> All Photos</NavLink></li>
                 </ul>
             </div>
             <div className="navbar-end">
