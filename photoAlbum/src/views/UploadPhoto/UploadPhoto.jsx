@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { getDownloadURL, ref as storageRef, uploadBytes } from "firebase/storage";
 import { storage } from "../../config/firebase-config";
 import { addPhoto } from "../../service/photo-service";
+import { useNavigate } from "react-router-dom";
 
 const UploadPhoto = () => {
 
@@ -11,6 +12,7 @@ const UploadPhoto = () => {
     })
 
     const [file, setFile] = useState(null);
+    const navigate = useNavigate()
 
     const handleInputChange = (prop) => (e) => {
         setForm({
@@ -27,16 +29,6 @@ const UploadPhoto = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        if (form.title.length < 4 || form.title.length > 40) {
-            alert('Title must be between 4 and 40 characters')
-            return
-        }
-
-        if (form.description.length < 4 || form.description > 1000) {
-            alert('Description must be between 4 and 1000 characters')
-            return
-        }
 
         try {
             let url = ''
@@ -60,6 +52,8 @@ const UploadPhoto = () => {
         } catch (error) {
             console.error('Failed to upload photo:', error)
         }
+
+        navigate('/photos')
 
     }
 

@@ -87,17 +87,17 @@ app.put('/photos/:id', (req, res) => {
         res.sendStatus(404);
         return
     }
-
+ 
     if (req.body.title) {
-        photos.title = req.body.title
+        photo.title = req.body.title
     }
 
     if (req.body.description) {
-        photos.description = req.body.description
+        photo.description = req.body.description
     }
 
     if (req.body.url) {
-        photos.url = req.body.url
+        photo.url = req.body.url
     }
 
     res.json(photo)

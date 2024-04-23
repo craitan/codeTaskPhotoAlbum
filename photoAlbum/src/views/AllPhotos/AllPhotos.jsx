@@ -7,10 +7,15 @@ const AllPhotos = () => {
     const [photos, setPhotos] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [photosPerPage] = useState(6);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
-        getAllPhotos().then(setPhotos)
-    }, [])
+        if (searchTerm !== '') {
+            getAllPhotos().then(result => setPhotos(result.filter(el => el.title.toLowerCase().includes(searchTerm.toLowerCase()))))
+        }
+        else { getAllPhotos().then(setPhotos) }
+
+    }, [searchTerm])
 
 
     const totalPages = Math.ceil(photos.length / photosPerPage);
@@ -26,6 +31,7 @@ const AllPhotos = () => {
 
     return (
         <div className="mt-10 flex flex-col items-center justify-center">
+            <input className="input input-bordered w-full max-w-xs" type="text" placeholder="Search photos" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} />
             {photos.length > 0 ? (
                 <>
                     <div className="flex flex-wrap justify-center">

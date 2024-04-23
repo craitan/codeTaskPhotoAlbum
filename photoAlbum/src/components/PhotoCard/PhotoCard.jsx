@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 /**
  * 
- * @param {{title: string, description: string, imgUrl: string, id:string}} param
+ * @param {{title: string, description: string, imgUrl: string, id:number}} param
  */
 const PhotoCard = ({ title, description, imgUrl, id }) => {
 
@@ -29,7 +29,7 @@ PhotoCard.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     imgUrl: PropTypes.string,
-    id: PropTypes.string,
+    id: PropTypes.number,
 }
 
 
